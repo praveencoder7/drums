@@ -53,4 +53,3 @@ function buttonAnimation(currentButton)
         activeButton.classList.remove("pressed"); 
     },100);   //After 1 second removing that pressed class to like an animation
 }
-}
