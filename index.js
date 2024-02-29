@@ -4,12 +4,14 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++)
 {
 document.querySelectorAll(".drum")[i].addEventListener("click",function (){
     makeSound(this.innerHTML); //get that Html element present like - w,a,s,d,j,k,l
+    buttonAnimation(this.innerHTML); //to get pressing animation on button
 });
 }
 
 //for keyboard click
 document.addEventListener("keypress",function (event){
     makeSound(event.key); // key is nothing but pressed key by keyboard
+    buttonAnimation(event.key); //to get pressing animation on button
 })
 
 function makeSound(key){
@@ -41,4 +43,14 @@ function makeSound(key){
             console.log(key);
             break;
         }
+}
+function buttonAnimation(currentButton)
+{
+    var activeButton = document.querySelector("."+currentButton); //its a class like - .w, .a, .s, .d, .j, .k, .l
+    activeButton.classList.add("pressed"); //here adding class to there classlist Note: here we can't use "." 
+
+    setTimeout(function (){
+        activeButton.classList.remove("pressed"); 
+    },100);   //After 1 second removing that pressed class to like an animation
+}
 }
